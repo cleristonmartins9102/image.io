@@ -1,4 +1,4 @@
-type ImageRecord = {
+type ImagenRecord = {
   Fields: {
     Title: string
     Summary: string
@@ -10,5 +10,7 @@ type ImageRecord = {
   }
 }
 export interface XMLModel {
-  Records: ImageRecord
+  Records: {
+    ImagenRecord: ImagenRecord
+  }
 }

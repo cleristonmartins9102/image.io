@@ -3,6 +3,7 @@ import { CreateFile } from '../domain/create-file'
 import { FileModel } from '../domain/file-model'
 import { ConverterFile } from '../infra/protocols/converter-file'
 import { RepositoryAPI } from '../infra/protocols/repositoryAPI'
+import { RepositoryImageApi } from '../infra/repository-image-api'
 import { AddFileController } from './add-file-controller'
 
 class ConverterXML implements ConverterFile {
@@ -16,9 +17,9 @@ class CreateFileXml implements CreateFile {
   }
 }
 
-class RepositoryImageAPI implements RepositoryAPI {
-  send (file: any): any {}
-}
+// class RepositoryImageAPI implements RepositoryAPI {
+//   send (file: any): any {}
+// }
 
 const file: FileModel = {
   title: 'DBZ',
@@ -30,7 +31,7 @@ describe('Controller', () => {
   test('Ensure calls Converter getJson', async () => {
     const converter = new ConverterXML()
     const createFile = new CreateFileXml()
-    const repository = new RepositoryImageAPI()
+    const repository = new RepositoryImageApi()
     const sut = new AddFileController(converter, createFile, repository)
     const getJsonSpy = jest.spyOn(converter, 'getJson')
     await sut.handle(file)
@@ -40,7 +41,7 @@ describe('Controller', () => {
   test('Ensure calls CreateFile', async () => {
     const converter = new ConverterXML()
     const createFile = new CreateFileXml()
-    const repository = new RepositoryImageAPI()
+    const repository = new RepositoryImageApi()
     const sut = new AddFileController(converter, createFile, repository)
     const createFileSpy = jest.spyOn(createFile, 'create')
     await sut.handle(file)
@@ -50,7 +51,7 @@ describe('Controller', () => {
   test('Ensure calls Converter toXML', async () => {
     const converter = new ConverterXML()
     const createFile = new CreateFileXml()
-    const repository = new RepositoryImageAPI()
+    const repository = new RepositoryImageApi()
     const sut = new AddFileController(converter, createFile, repository)
     const toXmlSpy = jest.spyOn(converter, 'toXml')
     await sut.handle(file)
@@ -60,7 +61,7 @@ describe('Controller', () => {
   test('Ensure calls Repository', async () => {
     const converter = new ConverterXML()
     const createFile = new CreateFileXml()
-    const repository = new RepositoryImageAPI()
+    const repository = new RepositoryImageApi()
     const sut = new AddFileController(converter, createFile, repository)
     jest.spyOn(converter, 'toXml').mockReturnValueOnce('any_xml')
     const repositorySpy = jest.spyOn(repository, 'send')

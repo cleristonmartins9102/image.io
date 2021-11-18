@@ -10,13 +10,15 @@ const file: FileModel = {
 
 const fileChanged: XMLModel = {
   Records: {
-    Fields: {
-      Title: 'any_title',
-      Summary: 'any_summary'
-    },
-    MediaObject: {
-      MediaElement: {
-        OriginalFile: 'http://any_address'
+    ImagenRecord: {
+      Fields: {
+        Title: 'any_title',
+        Summary: 'any_summary'
+      },
+      MediaObject: {
+        MediaElement: {
+          OriginalFile: 'http://any_address'
+        }
       }
     }
   }

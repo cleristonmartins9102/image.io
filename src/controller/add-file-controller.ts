@@ -17,7 +17,7 @@ export class AddFileController implements Controller {
       const json = await this.createFile.create(jsonStructure, file)
       const xml = this.converter.toXml(json)
       if (xml) {
-        this.repository.send(xml)
+        await this.repository.send(xml)
       }
       return null
     } catch (err) {

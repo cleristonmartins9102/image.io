@@ -22,7 +22,7 @@ export class ConverterXML implements ConverterFile {
       {
         Records: [
           {
-            name: 'Fields', children: { Title: file.Records.Fields.Title, Summary: file.Records.Fields.Summary }
+            name: 'Fields', children: { Title: file.Records.ImagenRecord.Fields.Title, Summary: file.Records.ImagenRecord.Fields.Summary }
           },
           {
             name: 'MediaObject',
@@ -32,7 +32,7 @@ export class ConverterXML implements ConverterFile {
                 name: 'MediaElement',
                 attrs: { MediaType: 'image' },
                 children: {
-                  OriginalFile: file.Records.MediaObject.MediaElement.OriginalFile
+                  OriginalFile: file.Records.ImagenRecord.MediaObject.MediaElement.OriginalFile
                 }
               }
             ]

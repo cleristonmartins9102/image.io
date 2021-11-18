@@ -10,11 +10,11 @@ export class RepositoryImageApi implements RepositoryAPI {
     }
   }
 
-  send (file: any): any {
-    axios.put('https://developers.imagen.io/mcc/import/record_PUT/', file, this.config)
+  async send (file: any): Promise<any> {
+    return await axios.put('https://hiringtestmcc.imagencloud.com:83/imcc/v1/import/record/file', file, this.config)
   }
 
-  pull (): any {
-    axios.get('https://developers.imagen.io/mcc/import/mappings_GET/', this.config)
+  async pull (): Promise<any> {
+    return await axios.get('https://developers.imagen.io/mcc/import/mappings_GET/', this.config)
   }
 }
