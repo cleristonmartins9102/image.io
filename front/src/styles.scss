@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import './app/color.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+input {
+  border: 1px solid #560027;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-left: 5px;
+  padding-left: 10px;
+}

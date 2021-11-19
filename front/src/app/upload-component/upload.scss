@@ -1,0 +1,12 @@
+.upload_wrap {
+  .input_wrap {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      height: 2rem;
+      margin: 5px 0;
+      width: 30rem;
+    }
+  }
+}

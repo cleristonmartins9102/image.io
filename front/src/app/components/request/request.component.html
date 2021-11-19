@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="wrap_components">
+    <div class="input_row">
+      <span class='label'>POST</span>
+      <input type="text" [value]='currentUrl.address' readonly>
+    </div>
+    <upload-comp 
+      *ngIf="currentUrl.method==='put'"
+      (sendForm)='receiveForm($event)'
+    >
+    </upload-comp>
+    <div *ngIf="currentUrl.method==='get' && imagesApi">
+      <input type="textarea" [value]='imagesApi'>
+    </div>
+    <div class="buttons">
+      <button (click)='changeUrl("get")'>GET Images</button>
+      <button (click)='changeUrl()' *ngIf="currentUrl.method!=='put'">Upload Image</button>
+      <button 
+        (click)='send()' 
+        *ngIf="currentUrl.method==='put'"
+        [ngClass]='{"inValid": !form.valid }'
+      >Send</button>
+    </div>
+  </div>
+</div>
