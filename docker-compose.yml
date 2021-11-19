@@ -13,14 +13,15 @@ services:
       - ./log/nginx/backend:/var/log/nginx
   
   frontend:
-    image: nginx
+    image: ubuntu/nginx
     container_name: frontend-container-image.io
     restart: always
+    working_dir: /app
     ports:
       - "5051:5051"
     volumes:
       - ./docker/nginx/frontend.conf:/etc/nginx/conf.d/frontend.conf
-      - ./front/dist:/app
+      - ./front:/app
       - ./log/nginx/frontend:/var/log/nginx
     links:
       - backend
